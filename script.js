@@ -12,8 +12,6 @@ function getComputerChoice() {
     return choice;
 };
 
-let computerChoice = getComputerChoice()
-
 function getHumanChoice() {
     let hChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
 
@@ -81,8 +79,7 @@ function playGame(humanSelection, computerSelection) {
     console.log(totalscore);
 };
 
-for (let round = 1; round > 5; round++) {
-    console.log(`Round ${round}!`)
-    playGame(getHumanChoice(), getComputerChoice())
+for (let round = 1; round <= 5; round++) {
+    console.log(`Round ${round}!`);
+    playGame(getHumanChoice(), getComputerChoice());
 };
-
