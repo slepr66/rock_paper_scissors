@@ -82,4 +82,11 @@ function playGame(humanSelection, computerSelection) {
 for (let round = 1; round <= 5; round++) {
     console.log(`Round ${round}!`);
     playGame(getHumanChoice(), getComputerChoice());
+    if (round === 5) {
+        if (humanScore > computerScore) {
+            console.log("Congratulations! You won!")
+        } else {
+            console.log("You lose..")
+        }
+    };
 };
