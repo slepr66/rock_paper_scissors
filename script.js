@@ -1,9 +1,9 @@
 function getComputerChoice() {
-    let choiceNum = Math.random();
+    let choiceNum = (Math.random() * 3);
     let choice;
-    if (choiceNum <= 0.334) {
+    if (choiceNum < 1) {
        choice = "rock";
-    } else if (choiceNum > 0.333 && choiceNum <= 0.667) {
+    } else if (choiceNum < 1 && choiceNum > 2) {
         choice = "paper";
     } else {
         choice = "scissors"
@@ -12,17 +12,26 @@ function getComputerChoice() {
     return choice;
 };
 
-function getHumanChoice() {
-    let hChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
-    if (hChoice === "rock" || hChoice === "paper" || hChoice === "scissors") {
-        return hChoice;
-    } else {
-        hChoice = prompt("Please input the correct spelling to continue.").toLowerCase()
-    };
+let humanChoice = "";
 
-    return hChoice;
-};
+rock.addEventListener("click", () => {
+    humanChoice = "rock";
+    playGame()
+});
+
+paper.addEventListener("click", () => {
+    humanChoice = "paper";
+    playGame()
+});
+
+scissors.addEventListener("click", () => {
+    humanChoice = "paper";
+    playGame()
+});
 
 let humanScore = 0;
 let computerScore = 0;
@@ -73,20 +82,11 @@ function playRound(humanChoice, computerChoice) {
     };
 };
 
-function playGame(humanSelection, computerSelection) {    
-    playRound(humanSelection, computerSelection);
+function playGame() {
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
     let totalscore = `Score is Player: ${humanScore} Computer: ${computerScore}`;
     console.log(totalscore);
 };
 
-for (let round = 1; round <= 5; round++) {
-    console.log(`Round ${round}!`);
-    playGame(getHumanChoice(), getComputerChoice());
-    if (round === 5) {
-        if (humanScore > computerScore) {
-            console.log("Congratulations! You won!")
-        } else {
-            console.log("You lose..")
-        }
-    };
-};
+
