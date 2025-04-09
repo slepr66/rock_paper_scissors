@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <div id="container">
+        <div id="buttonContainer">
+            <button id="rock" class="btn primary">Rock</button>
+            <button id="paper" class="btn secondary">Paper</button>
+            <button id="scissors" class="btn tertiary">Scissors</button>
+        </div>
+        <div id="gameArea">Throw an attack to begin an epic battle!</div>
+        <div id="gameArea2">Good luck warrior.</div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
